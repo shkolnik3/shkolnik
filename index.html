@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>שקולניק פסיכומטרי - הדרך המדויקת לציון היעד</title>
+  <meta name="description" content="תהליך אישי 1 על 1 שמותאם בדיוק אליך ומוביל לשיפור של עשרות נקודות במועד אחד." />
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* Hide scrollbar */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Carousel snap */
+    .snap-x-mandatory {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .snap-start { scroll-snap-align: start; }
+
+    /* Floating WhatsApp pulse */
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45); }
+      60%       { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+    }
+    .wa-pulse { animation: wa-pulse 2.8s ease-in-out infinite; }
+
+    /* CTA bounce */
+    @keyframes cta-bounce {
+      0%, 100% { transform: translateY(0);    box-shadow: 0 6px 18px -2px rgba(37,211,102,0.75); }
+      50%       { transform: translateY(-12px); box-shadow: 0 22px 18px -8px rgba(37,211,102,0.2); }
+    }
+    .cta-bounce { animation: cta-bounce 1.8s ease-in-out infinite; }
+
+    /* Ensure video fills its container */
+    video { display: block; }
+  </style>
+</head>
+
+<body class="bg-amber-50 text-stone-900 font-sans antialiased">
+
+  <!-- ─── HEADER ──────────────────────────────────────────────────────────── -->
+  <header class="sticky top-0 z-50 bg-amber-50/95 backdrop-blur-sm border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- Brand (right in RTL) -->
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="לוגו שקולניק פסיכומטרי" class="h-10 w-auto object-contain" />
+        <span class="font-semibold text-stone-900 text-base hidden sm:block tracking-tight">שקולניק פסיכומטרי</span>
+      </div>
+
+      <!-- Social icons (left in RTL) -->
+      <div class="flex items-center gap-5">
+        <a href="https://www.instagram.com/shkolnikpsychometry" target="_blank" rel="noopener noreferrer"
+           aria-label="Instagram" class="text-stone-600 hover:text-stone-900 transition-all duration-200 hover:scale-110">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@shkolnik.psychometry" target="_blank" rel="noopener noreferrer"
+           aria-label="TikTok" class="text-stone-600 hover:text-stone-900 transition-all duration-200 hover:scale-110">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/share/1A7cACDTaK/" target="_blank" rel="noopener noreferrer"
+           aria-label="Facebook" class="text-stone-600 hover:text-stone-900 transition-all duration-200 hover:scale-110">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
+    <section class="py-16 md:py-24 px-6 bg-amber-50">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+
+          <!-- Text (DOM-first → visual-right in RTL) -->
+          <div class="flex-1 text-right reveal">
+            <p class="text-amber-600 font-medium text-sm uppercase tracking-widest mb-4">תוכנית פסיכומטרי אישית</p>
+            <h1 class="text-3xl md:text-[2.75rem] font-bold text-stone-900 leading-tight mb-6">
+              שקולניק פסיכומטרי -<br />
+              <span class="relative inline-block text-amber-600">
+                הדרך המדויקת
+                <svg class="absolute right-0 -bottom-2 w-full" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                  <path d="M4 8 Q40 3 80 7 Q130 12 180 6 Q230 1 296 7" stroke="#d97706" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.7"/>
+                </svg>
+              </span> להגיע<br class="hidden md:block" />
+              <span>לציון היעד כבר במועד הקרוב</span>
+            </h1>
+            <p class="text-lg text-stone-500 leading-relaxed mb-10 max-w-lg">
+              תהליך אישי 1 על 1 שמותאם בדיוק אליך ומוביל לשיפור של עשרות נקודות במועד אחד!
+            </p>
+            <div style="display:inline-flex;flex-direction:column;align-items:center;gap:6px;">
+              <a href="https://wa.me/972547461665" target="_blank" rel="noopener noreferrer"
+                 class="cta-bounce inline-flex items-center gap-3 px-7 py-4 rounded-2xl text-white font-semibold text-base
+                        hover:opacity-90 active:scale-[0.98]"
+                 style="background-color:#25D366;">
+                <!-- WhatsApp icon -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="flex-shrink-0">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+                </svg>
+                לווצאפ האישי שלי
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero video (DOM-second → visual-left in RTL) -->
+          <div class="flex-shrink-0 reveal" style="transition-delay:0.15s">
+            <div class="w-full sm:w-80 md:w-[420px] rounded-2xl overflow-hidden border border-stone-200 bg-stone-100 shadow-sm">
+              <video
+                src="mainvideo/%D7%A2%D7%95%D7%AA%D7%A7%20%D7%A9%D7%9C%20308412b66ce5459399bc8768db3347e7.mov"
+                autoplay muted loop playsinline controls
+                class="w-full h-auto"
+              >
+                <p class="p-6 text-stone-400 text-sm text-center">הדפדפן שלך אינו תומך בהפעלת וידאו.</p>
+              </video>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── STUDENT VIDEO CAROUSEL ──────────────────────────────────────────── -->
+    <section class="py-16 md:py-20 px-6 bg-white">
+      <div class="max-w-7xl mx-auto">
+
+        <div class="text-right mb-10 reveal">
+          <h2 class="text-2xl md:text-3xl font-bold text-stone-900 mb-2">תלמידים מספרים</h2>
+          <p class="text-stone-500">שמעו מהם - סיפורים אמיתיים, תוצאות אמיתיות</p>
+        </div>
+
+        <div class="relative reveal" style="transition-delay:0.1s">
+          <!-- Arrow right (go to previous item in LTR scroll) -->
+          <button id="carousel-prev" aria-label="הקודם"
+            class="absolute -right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10
+                   hidden md:flex items-center justify-center
+                   w-10 h-10 bg-white border border-stone-200 rounded-full
+                   shadow-sm hover:bg-stone-50 transition-colors duration-200">
+            <i data-lucide="chevron-right" class="w-5 h-5 text-stone-600"></i>
+          </button>
+
+          <!-- Track (dir=ltr for consistent cross-browser scroll direction) -->
+          <div id="carousel-track" dir="ltr"
+            class="snap-x-mandatory no-scrollbar flex gap-4 overflow-x-auto pb-2">
+
+            <div class="snap-start flex-shrink-0 w-60 sm:w-72">
+              <div class="rounded-2xl overflow-hidden border border-stone-200 bg-stone-900">
+                <video src="studentsvideos/WhatsApp%20Video%202026-05-05%20at%2014.20.26.mp4"
+                  controls class="w-full h-80 object-cover"></video>
+              </div>
+            </div>
+
+            <div class="snap-start flex-shrink-0 w-60 sm:w-72">
+              <div class="rounded-2xl overflow-hidden border border-stone-200 bg-stone-900">
+                <video src="studentsvideos/WhatsApp%20Video%202026-05-05%20at%2014.20.27.mp4"
+                  controls class="w-full h-80 object-cover"></video>
+              </div>
+            </div>
+
+            <div class="snap-start flex-shrink-0 w-60 sm:w-72">
+              <div class="rounded-2xl overflow-hidden border border-stone-200 bg-stone-900">
+                <video src="studentsvideos/WhatsApp%20Video%202026-05-05%20at%2014.20.28.mp4"
+                  controls class="w-full h-80 object-cover"></video>
+              </div>
+            </div>
+
+            <div class="snap-start flex-shrink-0 w-60 sm:w-72">
+              <div class="rounded-2xl overflow-hidden border border-stone-200 bg-stone-900">
+                <video src="studentsvideos/WhatsApp%20Video%202026-05-05%20at%2014.22.50.mp4"
+                  controls class="w-full h-80 object-cover"></video>
+              </div>
+            </div>
+
+            <div class="snap-start flex-shrink-0 w-60 sm:w-72">
+              <div class="rounded-2xl overflow-hidden border border-stone-200 bg-stone-900">
+                <video src="studentsvideos/WhatsApp%20Video%202026-05-05%20at%2014.23.45.mp4"
+                  controls class="w-full h-80 object-cover"></video>
+              </div>
+            </div>
+
+            <div class="snap-start flex-shrink-0 w-60 sm:w-72">
+              <div class="rounded-2xl overflow-hidden border border-stone-200 bg-stone-900">
+                <video src="studentsvideos/WhatsApp%20Video%202026-05-05%20at%2014.24.03.mp4"
+                  controls class="w-full h-80 object-cover"></video>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Arrow left -->
+          <button id="carousel-next" aria-label="הבא"
+            class="absolute -left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10
+                   hidden md:flex items-center justify-center
+                   w-10 h-10 bg-white border border-stone-200 rounded-full
+                   shadow-sm hover:bg-stone-50 transition-colors duration-200">
+            <i data-lucide="chevron-left" class="w-5 h-5 text-stone-600"></i>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── FIVE REASONS ──────────────────────────────────────────────────────── -->
+    <section class="py-16 md:py-24 px-6 bg-amber-50">
+      <div class="max-w-7xl mx-auto">
+
+        <div class="text-right mb-12 reveal">
+          <h2 class="text-2xl md:text-3xl font-bold text-stone-900 mb-2">
+            5 סיבות ללמוד עם שקולניק פסיכומטרי
+          </h2>
+          <p class="text-stone-500">הדרך הכי טובה לציון שרצית</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <div class="reveal group bg-white border border-stone-200 rounded-2xl p-6
+                      hover:border-amber-300 transition-colors duration-300"
+               style="transition-delay:0.05s">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center mb-5">
+              <i data-lucide="user" class="w-5 h-5 text-amber-600"></i>
+            </div>
+            <h3 class="font-semibold text-stone-900 text-lg mb-2 text-right">ליווי אישי אמיתי 1 על 1</h3>
+            <p class="text-stone-500 text-sm leading-relaxed text-right">
+              מורה שמכיר אותך לעומק ומלווה אותך צמוד - גם מעבר ל-12 השיעורים הפרטיים!
+            </p>
+          </div>
+
+          <div class="reveal group bg-white border border-stone-200 rounded-2xl p-6
+                      hover:border-amber-300 transition-colors duration-300"
+               style="transition-delay:0.1s">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center mb-5">
+              <i data-lucide="trending-up" class="w-5 h-5 text-amber-600"></i>
+            </div>
+            <h3 class="font-semibold text-stone-900 text-lg mb-2 text-right">שיפור של עשרות נקודות</h3>
+            <p class="text-stone-500 text-sm leading-relaxed text-right">
+              שיטה מוכחת שמביאה תוצאות - גם למי שנתקע ולא השתפר.
+            </p>
+          </div>
+
+          <div class="reveal group bg-white border border-stone-200 rounded-2xl p-6
+                      hover:border-amber-300 transition-colors duration-300"
+               style="transition-delay:0.15s">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center mb-5">
+              <i data-lucide="book-open" class="w-5 h-5 text-amber-600"></i>
+            </div>
+            <h3 class="font-semibold text-stone-900 text-lg mb-2 text-right">מעטפת מלאה עד רמת 700</h3>
+            <p class="text-stone-500 text-sm leading-relaxed text-right">
+              הכל במקום אחד: שיעורים, תרגול אדפטיבי בכמותי, מילולי ואנגלית - כולל יחידת 700 מתקדמת.
+            </p>
+          </div>
+
+          <div class="reveal group bg-white border border-stone-200 rounded-2xl p-6
+                      hover:border-amber-300 transition-colors duration-300"
+               style="transition-delay:0.2s">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center mb-5">
+              <i data-lucide="target" class="w-5 h-5 text-amber-600"></i>
+            </div>
+            <h3 class="font-semibold text-stone-900 text-lg mb-2 text-right">תהליך שמכוון לציון היעד</h3>
+            <p class="text-stone-500 text-sm leading-relaxed text-right">
+              תוכנית אישית שנבנית לפי הרמה שלך ומתעדכנת בהתאם לנקודות הספציפיות שלך.
+            </p>
+          </div>
+
+          <div class="reveal group bg-white border border-stone-200 rounded-2xl p-6
+                      hover:border-amber-300 transition-colors duration-300"
+               style="transition-delay:0.25s">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center mb-5">
+              <i data-lucide="zap" class="w-5 h-5 text-amber-600"></i>
+            </div>
+            <h3 class="font-semibold text-stone-900 text-lg mb-2 text-right">בלי בזבוז זמן מיותר</h3>
+            <p class="text-stone-500 text-sm leading-relaxed text-right">
+              מתמקדים רק במה שמקדם אותך בפועל לציון - לא לומדים "סתם".
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TESTIMONIALS GALLERY ──────────────────────────────────────────────── -->
+    <section class="py-16 md:py-20 px-6 bg-white">
+      <div class="max-w-7xl mx-auto">
+
+        <div class="text-right mb-10 reveal">
+          <h2 class="text-2xl md:text-3xl font-bold text-stone-900 mb-2">מה תלמידים אומרים</h2>
+          <p class="text-stone-500">המלצות אמיתיות מתלמידים שעברו את התהליך</p>
+        </div>
+
+        <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+
+          <div class="reveal break-inside-avoid" style="transition-delay:0.05s">
+            <img src="testimonials/WhatsApp%20Image%202026-05-05%20at%2014.26.23.jpeg"
+              alt="המלצת תלמיד" loading="lazy"
+              class="w-full rounded-2xl border border-stone-200 hover:scale-[1.02]
+                     transition-transform duration-300 cursor-pointer" />
+          </div>
+
+          <div class="reveal break-inside-avoid" style="transition-delay:0.1s">
+            <img src="testimonials/WhatsApp%20Image%202026-05-05%20at%2014.26.23%20%281%29.jpeg"
+              alt="המלצת תלמיד" loading="lazy"
+              class="w-full rounded-2xl border border-stone-200 hover:scale-[1.02]
+                     transition-transform duration-300 cursor-pointer" />
+          </div>
+
+          <div class="reveal break-inside-avoid" style="transition-delay:0.15s">
+            <img src="testimonials/WhatsApp%20Image%202026-05-05%20at%2014.26.23%20%282%29.jpeg"
+              alt="המלצת תלמיד" loading="lazy"
+              class="w-full rounded-2xl border border-stone-200 hover:scale-[1.02]
+                     transition-transform duration-300 cursor-pointer" />
+          </div>
+
+          <div class="reveal break-inside-avoid" style="transition-delay:0.2s">
+            <img src="testimonials/WhatsApp%20Image%202026-05-05%20at%2014.26.24.jpeg"
+              alt="המלצת תלמיד" loading="lazy"
+              class="w-full rounded-2xl border border-stone-200 hover:scale-[1.02]
+                     transition-transform duration-300 cursor-pointer" />
+          </div>
+
+          <div class="reveal break-inside-avoid" style="transition-delay:0.25s">
+            <img src="testimonials/WhatsApp%20Image%202026-05-05%20at%2014.26.24%20%281%29.jpeg"
+              alt="המלצת תלמיד" loading="lazy"
+              class="w-full rounded-2xl border border-stone-200 hover:scale-[1.02]
+                     transition-transform duration-300 cursor-pointer" />
+          </div>
+
+          <div class="reveal break-inside-avoid" style="transition-delay:0.3s">
+            <img src="testimonials/WhatsApp%20Image%202026-05-05%20at%2014.26.24%20%282%29.jpeg"
+              alt="המלצת תלמיד" loading="lazy"
+              class="w-full rounded-2xl border border-stone-200 hover:scale-[1.02]
+                     transition-transform duration-300 cursor-pointer" />
+          </div>
+
+          <div class="reveal break-inside-avoid" style="transition-delay:0.35s">
+            <img src="testimonials/WhatsApp%20Image%202026-05-05%20at%2014.26.24%20%283%29.jpeg"
+              alt="המלצת תלמיד" loading="lazy"
+              class="w-full rounded-2xl border border-stone-200 hover:scale-[1.02]
+                     transition-transform duration-300 cursor-pointer" />
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── GRADES / RESULTS ──────────────────────────────────────────────────── -->
+    <section class="py-16 md:py-20 px-6 bg-amber-50">
+      <div class="max-w-7xl mx-auto">
+
+        <div class="text-right mb-10 reveal">
+          <h2 class="text-2xl md:text-3xl font-bold text-stone-900 mb-2">תוצאות מוכחות</h2>
+          <p class="text-stone-500">ציונים אמיתיים של תלמידים שעברו את התהליך</p>
+        </div>
+
+        <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+
+          <div class="reveal break-inside-avoid" style="transition-delay:0.05s">
+            <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm
+                        hover:shadow-md hover:border-stone-300 transition-all duration-300">
+              <img src="grades/WhatsApp%20Image%202026-05-05%20at%2014.28.32.jpeg"
+                alt="ציון תלמיד" loading="lazy" class="w-full object-cover hover:scale-[1.02] transition-transform duration-300" />
+            </div>
+          </div>
+
+          <div class="reveal break-inside-avoid" style="transition-delay:0.1s">
+            <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm
+                        hover:shadow-md hover:border-stone-300 transition-all duration-300">
+              <img src="grades/WhatsApp%20Image%202026-05-05%20at%2014.28.32%20%281%29.jpeg"
+                alt="ציון תלמיד" loading="lazy" class="w-full object-cover hover:scale-[1.02] transition-transform duration-300" />
+            </div>
+          </div>
+
+          <div class="reveal break-inside-avoid" style="transition-delay:0.15s">
+            <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm
+                        hover:shadow-md hover:border-stone-300 transition-all duration-300">
+              <img src="grades/WhatsApp%20Image%202026-05-05%20at%2014.28.32%20%282%29.jpeg"
+                alt="ציון תלמיד" loading="lazy" class="w-full object-cover hover:scale-[1.02] transition-transform duration-300" />
+            </div>
+          </div>
+
+          <div class="reveal break-inside-avoid" style="transition-delay:0.2s">
+            <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm
+                        hover:shadow-md hover:border-stone-300 transition-all duration-300">
+              <img src="grades/WhatsApp%20Image%202026-05-05%20at%2014.28.32%20%283%29.jpeg"
+                alt="ציון תלמיד" loading="lazy" class="w-full object-cover hover:scale-[1.02] transition-transform duration-300" />
+            </div>
+          </div>
+
+          <div class="reveal break-inside-avoid" style="transition-delay:0.25s">
+            <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm
+                        hover:shadow-md hover:border-stone-300 transition-all duration-300">
+              <img src="grades/WhatsApp%20Image%202026-05-05%20at%2014.28.32%20%284%29.jpeg"
+                alt="ציון תלמיד" loading="lazy" class="w-full object-cover hover:scale-[1.02] transition-transform duration-300" />
+            </div>
+          </div>
+
+          <div class="reveal break-inside-avoid" style="transition-delay:0.3s">
+            <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm
+                        hover:shadow-md hover:border-stone-300 transition-all duration-300">
+              <img src="grades/WhatsApp%20Image%202026-05-05%20at%2014.28.33.jpeg"
+                alt="ציון תלמיד" loading="lazy" class="w-full object-cover hover:scale-[1.02] transition-transform duration-300" />
+            </div>
+          </div>
+
+          <div class="reveal break-inside-avoid" style="transition-delay:0.35s">
+            <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm
+                        hover:shadow-md hover:border-stone-300 transition-all duration-300">
+              <img src="grades/WhatsApp%20Image%202026-05-05%20at%2014.28.33%20%281%29.jpeg"
+                alt="ציון תלמיד" loading="lazy" class="w-full object-cover hover:scale-[1.02] transition-transform duration-300" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FINAL CTA ─────────────────────────────────────────────────────────── -->
+    <section class="py-16 md:py-24 px-6 bg-white">
+      <div class="max-w-xl mx-auto text-center reveal">
+        <h2 class="text-2xl md:text-3xl font-bold text-stone-900 mb-4">מוכן להתחיל?</h2>
+        <p class="text-stone-500 text-lg mb-8 leading-relaxed">
+          שלח לי הודעה בווצאפ ונדבר על התוכנית שמתאימה בדיוק אליך
+        </p>
+        <a href="https://wa.me/972547461665" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl text-white font-semibold text-base
+                  transition-all duration-200 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+           style="background-color:#25D366;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="flex-shrink-0">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+          </svg>
+          לווצאפ האישי שלי
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────────────────── -->
+  <footer class="bg-amber-50 border-t border-stone-200 py-10 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+
+      <!-- Brand -->
+      <div class="flex items-center gap-3 order-1">
+        <img src="assets/logo.png" alt="שקולניק פסיכומטרי" class="h-8 w-auto object-contain" />
+        <span class="font-semibold text-stone-700 text-sm">שקולניק פסיכומטרי</span>
+      </div>
+
+      <!-- Social -->
+      <div class="flex items-center gap-5 order-2">
+        <a href="https://www.instagram.com/shkolnikpsychometry" target="_blank" rel="noopener noreferrer"
+           aria-label="Instagram" class="text-stone-600 hover:text-stone-900 transition-all duration-200 hover:scale-110">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@shkolnik.psychometry" target="_blank" rel="noopener noreferrer"
+           aria-label="TikTok" class="text-stone-600 hover:text-stone-900 transition-all duration-200 hover:scale-110">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/share/1A7cACDTaK/" target="_blank" rel="noopener noreferrer"
+           aria-label="Facebook" class="text-stone-600 hover:text-stone-900 transition-all duration-200 hover:scale-110">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Copyright -->
+      <p class="text-stone-400 text-sm order-3">© 2026 שקולניק פסיכומטרי. כל הזכויות שמורות.</p>
+
+    </div>
+
+    <!-- Legal links -->
+    <div class="max-w-7xl mx-auto mt-6 pt-6 border-t border-stone-200 flex items-center justify-center gap-6 flex-wrap">
+      <a href="accessibility.html" class="text-stone-500 text-sm hover:text-stone-900 transition-colors duration-200">הצהרת נגישות</a>
+      <span class="text-stone-300 text-sm">|</span>
+      <a href="privacy.html" class="text-stone-500 text-sm hover:text-stone-900 transition-colors duration-200">מדיניות פרטיות</a>
+      <span class="text-stone-300 text-sm">|</span>
+      <a href="terms.html" class="text-stone-500 text-sm hover:text-stone-900 transition-colors duration-200">תקנון</a>
+    </div>
+
+  </footer>
+
+  <!-- ─── FLOATING WHATSAPP ─────────────────────────────────────────────────── -->
+  <a href="https://wa.me/972547461665" target="_blank" rel="noopener noreferrer"
+     aria-label="פנה אלינו בווצאפ"
+     class="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full flex items-center justify-center
+            text-white shadow-lg wa-pulse transition-transform duration-200 hover:scale-110"
+     style="background-color:#25D366;">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ─── SCRIPTS ───────────────────────────────────────────────────────────── -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    lucide.createIcons();
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Student video carousel - seamless infinite loop via cloned items
+    const track = document.getElementById('carousel-track');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+
+    if (track && prevBtn && nextBtn) {
+      const origItems = Array.from(track.querySelectorAll('.snap-start'));
+      const total = origItems.length; // 6 real items
+
+      // Append clones of all items so the track has 12 items (6 real + 6 clones)
+      origItems.forEach(item => track.appendChild(item.cloneNode(true)));
+
+      const allItems = Array.from(track.querySelectorAll('.snap-start')); // 12
+      let currentIndex = 0;
+      let busy = false;
+
+      // Instantly reposition the scroll without any animation (user won't notice
+      // because real item 0 looks identical to its clone at position 6)
+      function snapTo(index) {
+        track.style.scrollSnapType = 'none';
+        track.scrollLeft = allItems[index].offsetLeft;
+        currentIndex = index;
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          track.style.scrollSnapType = '';
+        }));
+      }
+
+      function goTo(index) {
+        if (busy) return;
+        busy = true;
+        currentIndex = index;
+        track.scrollTo({ left: allItems[currentIndex].offsetLeft, behavior: 'smooth' });
+
+        setTimeout(() => {
+          // If we landed on a clone (index 6-11), silently reset to the matching real item
+          if (currentIndex >= total) snapTo(currentIndex - total);
+          busy = false;
+        }, 550);
+      }
+
+      function goNext() { goTo(currentIndex + 1 < allItems.length ? currentIndex + 1 : 0); }
+      function goPrev() {
+        if (currentIndex <= 0) { snapTo(total - 1); busy = false; return; }
+        goTo(currentIndex - 1);
+      }
+
+      // Right arrow → next, left arrow → prev
+      prevBtn.addEventListener('click', goNext);
+      nextBtn.addEventListener('click', goPrev);
+
+      // Auto-scroll every 4 s, pauses on hover / touch
+      let autoTimer = setInterval(goNext, 4000);
+      const pause  = () => clearInterval(autoTimer);
+      const resume = () => { autoTimer = setInterval(goNext, 4000); };
+
+      track.addEventListener('mouseenter', pause);
+      track.addEventListener('mouseleave', resume);
+      track.addEventListener('touchstart', pause,  { passive: true });
+      track.addEventListener('touchend',   resume, { passive: true });
+    }
+  </script>
+
+</body>
+</html>
