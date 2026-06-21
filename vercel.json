@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/whatsapp.html",
+      "has": [{ "type": "host", "value": "wa.shkolnikpsychometry.com" }]
+    },
+    {
+      "source": "/",
+      "destination": "/long-form.html",
+      "has": [{ "type": "host", "value": "form.shkolnikpsychometry.com" }]
+    }
+  ]
+}
