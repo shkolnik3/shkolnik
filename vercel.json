@@ -9,6 +9,10 @@
       "source": "/:path*",
       "destination": "/long-form.html",
       "has": [{ "type": "host", "value": "form.shkolnikpsychometry.com" }]
+    },
+    {
+      "source": "/",
+      "destination": "/main.html"
     }
   ]
 }
