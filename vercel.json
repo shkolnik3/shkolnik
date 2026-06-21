@@ -1,12 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/",
+      "source": "/:path*",
       "destination": "/whatsapp.html",
       "has": [{ "type": "host", "value": "wa.shkolnikpsychometry.com" }]
     },
     {
-      "source": "/",
+      "source": "/:path*",
       "destination": "/long-form.html",
       "has": [{ "type": "host", "value": "form.shkolnikpsychometry.com" }]
     }
