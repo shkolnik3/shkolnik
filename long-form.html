@@ -1,6 +1,42 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
+  <!-- UTM / click-id capture -->
+  <script>
+    (function () {
+      var KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+      var PREFIX = 'utm_store__';
+      function store() {
+        try {
+          var qs = new URLSearchParams(window.location.search);
+          KEYS.forEach(function (k) {
+            var v = qs.get(k);
+            // first-touch: only write if present in URL and not already stored
+            if (v && !sessionStorage.getItem(PREFIX + k)) sessionStorage.setItem(PREFIX + k, v);
+          });
+        } catch (e) {}
+      }
+      function fields() {
+        var out = {};
+        try {
+          KEYS.forEach(function (k) {
+            var v = sessionStorage.getItem(PREFIX + k);
+            if (v) out[k] = v;
+          });
+        } catch (e) {}
+        return out;
+      }
+      function appendTo(url) {
+        var f = fields();
+        var parts = [];
+        for (var k in f) if (f.hasOwnProperty(k)) parts.push(encodeURIComponent(k) + '=' + encodeURIComponent(f[k]));
+        if (!parts.length) return url;
+        return url + (url.indexOf('?') === -1 ? '?' : '&') + parts.join('&');
+      }
+      store();
+      window.UTM = { fields: fields, appendTo: appendTo };
+    })();
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>שקולניק פסיכומטרי - הדרך המדויקת לציון היעד</title>
@@ -999,6 +1035,8 @@
         params.append('phone', phone);
         params.append('email', '');
         params.append('comment', comment);
+        var utm = window.UTM && window.UTM.fields ? window.UTM.fields() : {};
+        for (var uk in utm) if (utm.hasOwnProperty(uk)) params.append(uk, utm[uk]);
 
         fetch('https://api.lead.im/v2/submit', { method: 'POST', body: params })
           .then(function (res) { return res.json(); })
@@ -1231,6 +1269,8 @@
         params.append('phone', phone);
         params.append('email', '');
         params.append('comment', comment);
+        var utm = window.UTM && window.UTM.fields ? window.UTM.fields() : {};
+        for (var uk in utm) if (utm.hasOwnProperty(uk)) params.append(uk, utm[uk]);
 
         fetch('https://api.lead.im/v2/submit', { method: 'POST', body: params })
           .then(function (res) { return res.json(); })
