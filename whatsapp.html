@@ -751,7 +751,6 @@
 
       
       <form id="wa-modal-form" novalidate>
-        <input type="hidden" class="lm_serfer" name="lm_serfer" />
         <div class="mb-4">
           <label for="wa-fname" class="block text-sm font-medium text-stone-700 mb-1.5">שם מלא</label>
           <input id="wa-fname" type="text" placeholder="ישראל ישראלי" autocomplete="name" dir="rtl"
@@ -852,9 +851,11 @@
         params.append('phone', phoneEl.value.trim());
         params.append('email', '');
         params.append('comment', 'WhatsApp');
-        params.append('lm_serfer', (document.querySelector('input.lm_serfer') || {}).value || '');
 
-        fetch('https://api.lead.im/v2/submit', { method: 'POST', body: params })
+        var utmQS = new URLSearchParams(window.UTM ? window.UTM.fields() : {}).toString();
+        var apiUrl = 'https://api.lead.im/v2/submit' + (utmQS ? '?' + utmQS : '');
+
+        fetch(apiUrl, { method: 'POST', body: params })
           .catch(function () {})
           .finally(function () {
             fbq('track', 'Contact');
@@ -998,11 +999,5 @@
 
   </script>
 
-  <!-- lead.im first-click UTM tracking -->
-  <script type="text/javascript">
-  (function(l,e,a,d,i,m,s){l[i]=l[i]||function(){(l[i].q=l[i].q||[]).push(arguments)};m=e.createElement(a),s=e.getElementsByTagName(a)[0];m.async=1;m.src=d;s.parentNode.insertBefore(m,s)})(window,document,'script','//cdn.lead.im/api/v3/leadim.api.js','leadim');
-  leadim('trackModel', 'firstclick');
-  leadim('ready', function() { leadim('setforms', {selector: 'input.lm_serfer', create:false}); });
-  </script>
 </body>
 </html>
