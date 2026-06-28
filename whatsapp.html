@@ -4,7 +4,7 @@
   <!-- UTM / click-id capture -->
   <script>
     (function () {
-      var KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+      var KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_adset','utm_ad','utm_placement','fbclid','gclid'];
       var PREFIX = 'utm_store__';
       function store() {
         try {
@@ -751,6 +751,7 @@
 
       
       <form id="wa-modal-form" novalidate>
+        <input type="hidden" class="lm_serfer" name="lm_serfer" />
         <div class="mb-4">
           <label for="wa-fname" class="block text-sm font-medium text-stone-700 mb-1.5">שם מלא</label>
           <input id="wa-fname" type="text" placeholder="ישראל ישראלי" autocomplete="name" dir="rtl"
@@ -851,8 +852,7 @@
         params.append('phone', phoneEl.value.trim());
         params.append('email', '');
         params.append('comment', 'WhatsApp');
-        var utm = window.UTM && window.UTM.fields ? window.UTM.fields() : {};
-        for (var uk in utm) if (utm.hasOwnProperty(uk)) params.append(uk, utm[uk]);
+        params.append('lm_serfer', (document.querySelector('input.lm_serfer') || {}).value || '');
 
         fetch('https://api.lead.im/v2/submit', { method: 'POST', body: params })
           .catch(function () {})
@@ -998,5 +998,11 @@
 
   </script>
 
+  <!-- lead.im first-click UTM tracking -->
+  <script type="text/javascript">
+  (function(l,e,a,d,i,m,s){l[i]=l[i]||function(){(l[i].q=l[i].q||[]).push(arguments)};m=e.createElement(a),s=e.getElementsByTagName(a)[0];m.async=1;m.src=d;s.parentNode.insertBefore(m,s)})(window,document,'script','//cdn.lead.im/api/v3/leadim.api.js','leadim');
+  leadim('trackModel', 'firstclick');
+  leadim('ready', function() { leadim('setforms', {selector: 'input.lm_serfer', create:false}); });
+  </script>
 </body>
 </html>
